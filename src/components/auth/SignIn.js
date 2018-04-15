@@ -12,7 +12,6 @@ class SignIn extends Component {
 
 
     renderAlert() {
-        console.log(this.props);
        if(this.props.errorMessage) {
            return (
                <div className="alert alert-danger">
@@ -43,6 +42,7 @@ class SignIn extends Component {
 
 
 function mapStateToProps(state) {
+    console.log(state);
     return { errorMessage: state.auth.error }
 }
 

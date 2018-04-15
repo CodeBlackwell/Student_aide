@@ -17,7 +17,7 @@ export function signInUser ({ email, password }) {
         })
     // If Request is bad. .
         .catch(() => {
-
+        console.log('bad Request');
         dispatch(authError('Bad Login Information'))
         })
     }
