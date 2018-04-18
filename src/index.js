@@ -12,6 +12,9 @@ import SignUp from './components/auth/SignUp';
 import Instructors from './components/Instructors/Instructors';
 import reducers from './reducers';
 
+import RequireAuth from './components/auth/requireAuth';
+
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 ReactDOM.render(
@@ -21,7 +24,7 @@ ReactDOM.render(
             <IndexRoute component={SignIn} />
               <Route path="signout" component={SignOut} />
               <Route path="signup" component={SignUp} />
-              <Route path="instructors" component={Instructors} />
+              <Route path="instructors" component={RequireAuth(Instructors)} />
           </Route>
       </Router>
   </Provider>
