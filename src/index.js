@@ -9,6 +9,7 @@ import App from './components/app';
 import SignIn from './components/auth/SignIn';
 import SignOut from './components/auth/SignOut';
 import SignUp from './components/auth/SignUp';
+import Instructors from './components/Instructors/Instructors';
 import reducers from './reducers';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
@@ -19,7 +20,8 @@ ReactDOM.render(
           <Route path="/" component={App}>
             <IndexRoute component={SignIn} />
               <Route path="signout" component={SignOut} />
-              <Route path="signup" component={SignUp}/>
+              <Route path="signup" component={SignUp} />
+              <Route path="instructors" component={Instructors} />
           </Route>
       </Router>
   </Provider>

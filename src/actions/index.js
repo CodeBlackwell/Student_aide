@@ -13,7 +13,7 @@ export function signInUser ({ email, password }) {
         .then( response => {
             dispatch({ type: AUTH_USER });
             localStorage.setItem('token', response.data.token);
-            browserHistory.push('/feature');
+            browserHistory.push('/instructors');
         })
     // If Request is bad. .
         .catch(() => {
@@ -32,7 +32,7 @@ export function signUpUser ({ email, password }) {
             .then( response => {
                 dispatch({ type: AUTH_USER });
                 localStorage.setItem('token', response.data.token);
-                browserHistory.push('/feature');
+                browserHistory.push('/instructors');
             })
             // If Request is bad..
             .catch(response => {
