@@ -1,6 +1,6 @@
-import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from '../actions/constants';
+import {AUTH_USER, UNAUTH_USER, AUTH_ERROR, SIGNUP_ERROR} from '../actions/constants';
 
-export default function (state = {}, action) {
+export default function (state = { authenticated: false, error: null }, action) {
     switch (action.type) {
         case AUTH_USER:
             return {...state, authenticated: true};

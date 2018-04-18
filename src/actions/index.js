@@ -23,12 +23,31 @@ export function signInUser ({ email, password }) {
     }
 }
 
+export function signUpUser ({ email, password }) {
+    email = email.toLowerCase();
+    return function (dispatch) {
+        // Submit email/password
+        axios.post(`${ROOT_URL}/signup`, { email, password })
+        // If Request is good..
+            .then( response => {
+                dispatch({ type: AUTH_USER });
+                localStorage.setItem('token', response.data.token);
+                browserHistory.push('/feature');
+            })
+            // If Request is bad..
+            .catch(response => {
+                dispatch(authError(response.error))
+            })
+    }
+}
+
 export function authError(error) {
     return {
         type: AUTH_ERROR,
         payload: error
     }
 }
+
 
 export function signOutUser() {
     localStorage.removeItem('token');

@@ -6,7 +6,6 @@ import {signInUser} from '../../actions';
 class SignIn extends Component {
 
     static _handleFormSubmit({ email, password }) {
-        console.log({ email, password });
         this.props.dispatch(signInUser({ email, password }))
     }
 
